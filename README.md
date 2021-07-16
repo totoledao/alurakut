@@ -62,7 +62,7 @@
 
 ![Alurakut](./readmeAssets/Home.jpg)
 
-**Schedule your games, check what games are coming, categorize and sort your games by Ranked, Duel, Training or For Fun, share discord invites from your server with your friends and never forget a gaming session again!**
+**A social network inspired by the classic Orkut**
 
 App created during Imersão React 3rd edition by [Alura](https://alura.com.br/).
 
