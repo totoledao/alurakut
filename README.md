@@ -74,8 +74,9 @@ App created during Imersão React 3rd edition by [Alura](https://alura.com.br/).
 
 ### Technologies
 * Styled-components
-* DatoCMS
 * GraphQL
+* DatoCMS
+* datocms-client
 
 <!-- GETTING STARTED -->
 ## Getting Started
