@@ -100,7 +100,12 @@ To get a local copy up and running follow these simple steps.
    ```sh
    npm install
    ```
-3. Start the development server
+3. Replace *TOKEN* and *itemType* in **/api/communityCreator.js.example** with [your Dato project](https://dashboard.datocms.com/) keys and delete **.example** from the file extension
+   ```sh
+    const TOKEN = 'YOUR_API_READWRITE_TOKEN' 
+    itemType: 'YOUR_Community_model_ID_from_DatoCMS'
+   ```
+4. Start the development server
    ```sh
    npm run dev
    ```
