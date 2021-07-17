@@ -2,7 +2,7 @@
 <!-- See the bottom of this document for the declaration of the reference variables -->
 
 [![License: MIT][license-shield]][license-url]
-![Version](https://img.shields.io/badge/version-0.1.0-6bd4a7)
+![Version](https://img.shields.io/badge/version-0.2.0-6bd4a7)
 ![Size](https://github-size-badge.herokuapp.com/totoledao/alurakut.svg)
 ![Platform](https://img.shields.io/badge/platform-Web-7F00FF)
 
