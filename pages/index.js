@@ -3,7 +3,9 @@ import { AlurakutMenu, AlurakutProfileSidebarMenuDefault, OrkutNostalgicIconSet 
 
 import MainGrid from '../src/components/MainGrid';
 import Box from '../src/components/Box';
+import ProfileRelationsBox from '../src/components/ProfileRelationsBox';
 import { ProfileRelationsBoxWrapper } from '../src/components/ProfileRelations';
+
 
 
 
@@ -30,11 +32,7 @@ function ProfileSidebar(props) {
 
 export default function Home() {
 
-  const [comunidades, setComunidades] = React.useState([{
-    id: '155464f4df4g4we8e49q48e12912ew659',
-    title: 'My Community',
-    image: 'https://picsum.photos/300'
-  }]);
+  const [comunidades, setComunidades] = React.useState([]);
 
   const githubUser = 'totoledao'; 
   const pessoasFavoritas = [
@@ -46,6 +44,39 @@ export default function Home() {
     'fff'
   ];
 
+  const [seguidoresGithub, setSeguidoresGithub] = React.useState([]);
+
+  React.useEffect((() => {
+    //API github - GET
+    fetch('https://api.github.com/users/peas/followers')
+    .then( data => data.json() )    
+    .then( data => { setSeguidoresGithub(data); console.log(data[0].login); });
+
+    //API DatoCMS - GraphQL
+    fetch('https://graphql.datocms.com/' , {
+      method: 'POST',
+      headers: {
+        'Authorization': '49258b04f0a11c491d2b76eb17a76f',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({ "query": `query {
+        allCommunities {
+          title
+          id
+          imageurl
+          creatorslug
+          }    
+        }` })
+      })  
+      .then( data => data.json() )
+      .then( data => {
+        const allCommunities = data.data.allCommunities;
+        console.log(allCommunities);
+        setComunidades(allCommunities);
+      })
+  }),[]);
+  
   return (
     <>
 
@@ -72,15 +103,26 @@ export default function Home() {
               e.preventDefault();
 
               const dadosDoForm = new FormData(e.target);
-              const comunidade = {
-                id: new Date().toISOString(),
+              const comunidade = {                
                 title: dadosDoForm.get('title'),
-                image: dadosDoForm.get('image'),
+                imageurl: dadosDoForm.get('image'),
+                creatorslug: githubUser,
               } 
 
-              console.log(comunidade);
+              fetch('/api/communityCreator', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(comunidade)
+              })
+              .then(async (response) => {
+                const data = await response.json();
+                console.log(data);
+                const communities = data.communityCreated;
+                setComunidades([...communities , communities])
+              })
 
-              setComunidades([...comunidades , comunidade])
               }}
             >
 
@@ -107,23 +149,9 @@ export default function Home() {
         
         <div className="profileRelationsArea" style={{ gridArea: 'profileRelationsArea' }}>
 
-        <ProfileRelationsBoxWrapper >
-            <h2 className="smallTitle">
-              Pessoas da comunidade ({pessoasFavoritas.length})
-            </h2> 
+        <ProfileRelationsBox fieldName={'Pessoas da comunidade'} items={pessoasFavoritas} />     
 
-            <ul>
-              {pessoasFavoritas.map((item) => {
-                return (
-                  <li id={`item${new Date().toISOString()}`}>
-                    <a href={`/user/${item}`} >
-                      <img src={`https://github.com/${item}.png`} alt="Profile Picture" />
-                      <span>{item}</span>
-                    </a>
-                  </li>
-                )})}
-            </ul>
-          </ProfileRelationsBoxWrapper>
+        <ProfileRelationsBox fieldName={'Seguidores'} items={pessoasFavoritas} />
 
           <ProfileRelationsBoxWrapper >
             <h2 className="smallTitle">
@@ -134,8 +162,8 @@ export default function Home() {
               {comunidades.map((item) => {
                 return (
                   <li id={item.id}>
-                    <a href={`/user/${item.title}`} >
-                      <img src={item.image} alt="Community Picture" />
+                    <a href={`/communities/${item.id}`} >
+                      <img src={item.imageurl} alt="Community Picture" />
                       <span>{item.title}</span>
                     </a>
                   </li>
