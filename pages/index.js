@@ -75,7 +75,7 @@ export default function Home() {
         console.log(allCommunities);
         setComunidades(allCommunities);
       })
-  }),[]);
+  }),[setComunidades]);
   
   return (
     <>
@@ -119,8 +119,8 @@ export default function Home() {
               .then(async (response) => {
                 const data = await response.json();
                 console.log(data);
-                const communities = data.communityCreated;
-                setComunidades([...communities , communities])
+                const communitiesUpdated = data.communityCreated;
+                setComunidades([communitiesUpdated, ...comunidades])
               })
 
               }}
