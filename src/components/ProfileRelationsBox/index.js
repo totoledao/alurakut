@@ -6,7 +6,7 @@ export default function ProfileRelationsBox(props) {
 
     <ProfileRelationsBoxWrapper >
             <h2 className="smallTitle">
-              props.fieldName ({props.items.length})
+              {props.fieldName} ({props.items.length})
             </h2> 
 
             <ul>
