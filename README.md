@@ -16,10 +16,8 @@
 <br />
 <p align="center">
   <a href="https://alurakut-totoledao.vercel.app/">
-    <img src="readmeAssets/AlurakutLogo.svg" alt="Logo" width="200">
+    <img src="readmeAssets/AlurakutLogo.svg" alt="Alurakut Logo" width="200">
   </a>
-
-  <h3 align="center">Alurakut</h3>
 
   <p align="center">
     Orkut is back!
