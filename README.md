@@ -2,7 +2,7 @@
 <!-- See the bottom of this document for the declaration of the reference variables -->
 
 [![License: MIT][license-shield]][license-url]
-![Version](https://img.shields.io/badge/version-0.2.0-6bd4a7)
+![Version](https://img.shields.io/badge/version-0.6.0-6bd4a7)
 ![Size](https://github-size-badge.herokuapp.com/totoledao/alurakut.svg)
 ![Platform](https://img.shields.io/badge/platform-Web-7F00FF)
 
@@ -16,7 +16,7 @@
 <br />
 <p align="center">
   <a href="https://alurakut-totoledao.vercel.app/">
-    <img src="readmeAssets/Alurakut%20Logo.png" alt="Logo" width="150">
+    <img src="readmeAssets/AlurakutLogo.svg" alt="Logo" width="200">
   </a>
 
   <h3 align="center">Alurakut</h3>
@@ -24,7 +24,7 @@
   <p align="center">
     Orkut is back!
     <br />
-    <a href="https://github.com/totoledao/alurakut"><strong>Check it out»</strong></a>    
+    <a href="https://alurakut-totoledao.vercel.app/"><strong>Check it out»</strong></a>    
   </p>
 </p>
 
@@ -62,9 +62,11 @@
 
 ![Alurakut](./readmeAssets/Home.jpg)
 
-**A social network inspired by the classic Orkut**
+**A social network inspired by the classic Orkut!**
+<br>
+This project was done to practice and learn key skills for React and web development, so it is not likely to be further expanded or maintained.
 
-App created during Imersão React 3rd edition by [Alura](https://alura.com.br/).
+Created during Imersão React 3rd edition by [Alura](https://alura.com.br/).
 
 ### Built With
 
@@ -115,7 +117,19 @@ To get a local copy up and running follow these simple steps.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-<img src="readmeAssets/Alurakut%20Logo.png" alt="Logo" width="200">
+<img src="readmeAssets/1%20Login.jpg" alt="Logo" width="250">
+
+[Login](https://alurakut-totoledao.vercel.app/login) using your GitHub user.
+
+<img src="readmeAssets/2%20Home.jpg" alt="Logo" width="250">
+
+The profile picture and user name will change according to to the GitHub user logged in.
+
+<img src="readmeAssets/3%20Mobile%20Menu.jpg" alt="Logo" width="250">
+
+You can find the navigation links on the mobile menu or the left menu on a browser. Trey are currently not set, as their destination pages doesn't exist.
+
+**NOTE:** Currently friends are hardcoded and communities come from the backend. Communities can only be added by using a valid Read/Write API key at **api/communityCreator.js**.
 
 <!-- CONTRIBUTING -->
 ## Contributing
