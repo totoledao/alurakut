@@ -77,6 +77,7 @@ App created during Imersão React 3rd edition by [Alura](https://alura.com.br/).
 * GraphQL
 * DatoCMS
 * datocms-client
+* Nookies
 
 <!-- GETTING STARTED -->
 ## Getting Started
