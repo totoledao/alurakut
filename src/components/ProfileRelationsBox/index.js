@@ -10,7 +10,7 @@ export default function ProfileRelationsBox(props) {
             </h2> 
 
             <ul>
-              {props.items.map((item) => {
+              {props.items.slice(0, 6).map((item) => {
                 return (
                   <li id={`item${Math.random().toString()}`}>
                     <a href={`/user/${item}`} >
