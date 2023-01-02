@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.12.0",
-    "datocms-client": "^3.4.11"
+    "datocms-client": "^3.5.21"
   },
   "license": "MIT"
 }
